@@ -70,6 +70,25 @@ const albums = [
       '4 video performances from the concert'
     ]
   },
+    {
+    id: 'tsrts',
+    title: 'The Song Remains The Same',
+    subtitle: 'Super Deluxe Edition Box',
+    format: '2CD + 4LP + 3DVD',
+    image: DeluxeBoxpackshotmin,
+    orderLink: 'https://lnk.to/TSRTSDeluxe',
+    details: [
+      'Live from Madison Square Garden – July 1973',
+      '15 tracks; remastered audio',
+      '2 CDs',
+      '4 LPs on 180-gram vinyl',
+      '3 DVDs including Dolby Digital 5.1 surround sound',
+      'HD download card of entire album in 96 kHz/24-bit audio',
+      'Numbered art print of album cover',
+      '28-page book',
+      '20-page Replica of 1977 Japanese Cinema Programme'
+    ]
+  },
 
 ];
 
@@ -198,6 +217,7 @@ const bbcAlbums = [
       'Remastered album and unreleased audio will both be available'
     ]
   }
+  
 ];
 
 const presenceAlbums = [
@@ -278,6 +298,65 @@ const presenceAlbums = [
     details: [
       'The remastered album plus five companion audio tracks',
       'Available in standard and high-definition formats'
+    ]
+  },
+  //pasted here
+    {
+    id: 'bbc-box',
+    title: 'LED ZEPPELIN - THE COMPLETE BBC SESSIONS',
+    subtitle: 'Super Deluxe Boxed Set',
+    format1: '3 CD + 5 LP',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201701/led-zeppelin-bbc-deluxe-boxset-390x390-v2.jpg',
+    orderLink: 'https://smarturl.it/LZBBCBOX',
+    details: [
+      'Expanded with eight unreleased BBC recordings',
+      'Including the only recorded performance of "Sunshine Woman"',
+      'Remastered album, 2 CDs, each in a replica sleeve',
+      'Unreleased audio on CD in a separate card sleeve',
+      'Remastered album on 180-gram vinyl',
+      'Unreleased audio on 180-gram vinyl',
+      'High-def audio download card of all content at 96kHz/24 bit',
+      '44-page book filled with photos',
+      'High-quality print of the original album cover'
+    ]
+  },
+  {
+    id: 'bbc-cd',
+    title: '',
+    subtitle: 'Deluxe Edition CD',
+    format1: '3 CD',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201701/led-zeppelin-bbc-vinyl-boxset-390x390.jpg',
+    orderLink: 'https://smarturl.it/LZBBC3CD',
+    details: [
+      'Expanded with eight unreleased BBC recordings',
+      'Including the only recorded performance of "Sunshine Woman"',
+      'Remastered original album plus a third disc of unreleased audio'
+    ]
+  },
+  {
+    id: 'bbc-vinyl',
+    title: '',
+    subtitle: 'Deluxe Edition Vinyl',
+    format1: '5 LP',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201701/led-zeppelin-bbc-cd-390x390-v2.jpg',
+    orderLink: 'https://smarturl.it/LZBBC5LP',
+    details: [
+      'Expanded with eight unreleased BBC recordings',
+      'Including the only recorded performance of "Sunshine Woman"',
+      'Remastered original album, plus a fifth LP of unreleased audio'
+    ]
+  },
+  {
+    id: 'bbc-dig',
+    title: '',
+    subtitle: 'Digital Download',
+    format1: 'DIGITAL',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201701/led-zeppelin-bbc-cover-negative-390x390.jpg',
+    orderLink: 'https://smarturl.it/LZBBCDL',
+    details: [
+      'Expanded with eight unreleased BBC recordings',
+      'Including the only recorded performance of "Sunshine Woman"',
+      'Remastered album and unreleased audio will both be available'
     ]
   }
 ];
@@ -368,7 +447,58 @@ const ittodAlbums = [
       'The remastered album plus seven companion audio tracks',
       'Available in standard and high-definition formats'
     ]
-  }
+  },
+  //pasted here
+    {
+    id: 'htwww-box',
+    title: 'How The West Was Won - Super Deluxe Edition Box',
+    subtitle: 'Super Deluxe Edition Box',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201805/LZ-HTWWW-VinylBox-PS-wht-min.jpg',
+    orderLink: 'https://lnk.to/HTWWWSDlx',
+    details: []
+  },
+  {
+    id: 'htwww-vinyl',
+    title: 'Deluxe Edition Remastered Vinyl',
+    subtitle: 'Deluxe Edition Remastered Vinyl',
+    format1: '4LP (180g)',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201907/ledzeppelinssl/images/buy/vinyl.jpg',
+    orderLink: 'https://lnk.to/HTWWW4LP',
+    details: [
+      'Live from Long Beach and Los Angeles in 1972',
+      'First time on vinyl',
+      '18 tracks; remastered audio',
+      '4 LPs on 180-gram vinyl'
+    ]
+  },
+  {
+    id: 'htwww-blu',
+    title: '5.1 & Stereo HD audio',
+    subtitle: '5.1 & Stereo HD audio',
+    format1: '3CD',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201907/ledzeppelinssl/images/buy/3cd.jpg',
+    orderLink: 'https://lnk.to/HTWWWBluRay',
+    details: [
+      'Live from Long Beach and Los Angeles in 1972',
+      '18 tracks; remastered audio',
+      '96kHz/24-bit 5.1 in DTS-HD Master Audio Surround',
+      'PCM stereo and DTS-HD Master Audio Stereo',
+      'Photo Gallery'
+    ]
+  },
+  {
+    id: 'htwww-cd',
+    title: 'Remastered Original CD',
+    subtitle: 'Remastered Original CD',
+    format1: '3CD',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201907/ledzeppelinssl/images/buy/br.jpg',
+    orderLink: 'https://lnk.to/HTWWW3CD',
+    details: [
+      'Live from Long Beach and Los Angeles in 1972',
+      '18 tracks; remastered audio',
+      '3 CDs'
+    ]
+  },
 ];
 
 const codaAlbums = [
@@ -454,7 +584,60 @@ const codaAlbums = [
       'The remastered album plus fifteen companion audio tracks',
       'Available in standard and high-definition formats'
     ]
-  }
+  },
+  //pasted here
+    {
+    id: 'pg-box',
+    title: 'LED ZEPPELIN - PHYSICAL GRAFFITI',
+    subtitle: 'Super Deluxe Edition Box',
+    format1: '3 CD + 3 LP',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201701/lz_pg_super_deluxe_vinyl.jpg',
+    orderLink: 'https://smarturl.it/LZPGSuperDlxBox',
+    details: [
+      'CD 1 & 2: Remastered double album on CD in vinyl replica sleeve',
+      'CD 3: Companion audio on CD featuring new alternate cover art',
+      'Vinyl 1 & 2: Remastered double album on 180-gram vinyl',
+      'Vinyl 3: Companion audio on 180-gram vinyl',
+      'HD Download Card (All content at 96kHz/24 bit)',
+      'Hard bound, 96 page book filled with rare photos',
+      'High-quality print of the original album cover'
+    ]
+  },
+  {
+    id: 'pg-cd',
+    title: '',
+    subtitle: 'Remastered Original CD',
+    format1: '2 CD',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201701/lz_pg_deluxe-3_cd_reissue.jpg',
+    orderLink: 'https://smarturl.it/LZPG2CD',
+    details: [
+      'Remastered album packaged in a replica of the original LP jacket'
+    ]
+  },
+  {
+    id: 'pg-cd3',
+    title: '',
+    subtitle: 'Deluxe Edition CD',
+    format1: '3 CD',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201701/lz_pg_2_cd_original.jpg',
+    orderLink: 'https://smarturl.it/LZPG3CDdlx',
+    details: [
+      'Remastered album on two discs',
+      'Plus a third disc of unreleased companion audio'
+    ]
+  },
+  {
+    id: 'pg-vinyl',
+    title: '',
+    subtitle: 'Remastered Original Vinyl',
+    format1: '2 LP VINYL',
+    image: 'https://www.ledzeppelin.com/sites/g/files/g2000013721/files/sites/default/files/201701/lz_pg_2_lp_original_vinyl.jpg',
+    orderLink: 'https://smarturl.it/LZPG2LP',
+    details: [
+      'Remastered album on 180-gram vinyl',
+      'Packaged in a sleeve that replicates the LP\'s first pressing'
+    ]
+  },
 ];
 
 const pgAlbums = [
@@ -532,7 +715,9 @@ const pgAlbums = [
       'Remastered album and companion audio',
       'Available in standard and high-definition formats'
     ]
-  }
+  },
+  //pasted here
+  
 ];
 
 const lzivAlbums = [

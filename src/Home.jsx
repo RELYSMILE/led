@@ -340,7 +340,7 @@ const albums = [
   width: "100%",
   height: "100%",
   transform: `translateX(-${currentSlide * 100}%)`,
-  transition: "transform 0.6s ease-in-out"
+  transition: "transform 1.3s ease-in-out"
 }}>
             {slides.map((slide, index) => (
               <div
