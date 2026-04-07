@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import logo from './assets/logos/logo.png'
 import lz_logo from './assets/logos/LZ_logo_silver-1000x302.png'
 import './album.css';
+import './app.css';
 import Album from './Album'
 
 function Home() {
@@ -251,6 +252,7 @@ const albums = [
       {/* Header */}
       <header id="header" className="header">
         <div className="header-inner">
+          <div className='header-inner-x'>
           <div className="header-left">
             <h1 id="site-name">
               <a href="https://www.ledzeppelin.com" rel="home">
@@ -274,6 +276,7 @@ const albums = [
               ))}
             </ul>
           </nav>
+          </div>
 
           <div className="header-right">
             <div className="mlistwrapper">
@@ -329,16 +332,28 @@ const albums = [
       {/* Main Content */}
       <main id="main-wrapper">
         {/* Hero Slider Section */}
-        <div className="carousel-container">
-          <div className="carousel-wrapper">
+        <div className="carousel-container" style={{width: "100%",
+  overflow: "hidden",
+  position: "relative"}} >
+          <div className="carousel-wrapper" style={{
+  display: "flex",
+  width: "100%",
+  height: "100%",
+  transform: `translateX(-${currentSlide * 100}%)`,
+  transition: "transform 0.6s ease-in-out"
+}}>
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
                 className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
                 style={{
-                  transform: `translateX(${(index - currentSlide) * 100}%)`,
-                  opacity: index === currentSlide ? 1 : 0
-                }}
+    minWidth: "100%",   // VERY IMPORTANT
+    height: "100%",
+    flexShrink: 0,
+    position: "relative",
+    transform: `translateX(${(index - currentSlide) * 100}%)`,
+
+  }}
               >
                 <a href={slide.link} target="_blank" rel="noreferrer">
                   <img 
@@ -348,6 +363,12 @@ const albums = [
                       console.error('Failed to load:', slide.image)
                       e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><rect fill="%23333" width="100%" height="100%"/><text fill="%23fff" x="50%" y="50%" text-anchor="middle">Image Not Available</text></svg>'
                     }}
+                    style={{
+    width: "100%",
+    height: "auto",
+    objectFit: "cover",
+    display: "block"
+  }}
                   />
                 </a>
               </div>

@@ -1,1 +1,128 @@
 @import "tailwindcss";
+.page-wrapper{
+    .header{
+        .header-inner{
+            .header-inner-x{
+                display: flex;
+                align-items: center;
+            }
+            .header-left{
+                h1{
+                    a{
+                        span{
+                            img{
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header-menu{
+            }
+        }
+    }
+}
+
+
+@media(max-width: 768px){
+.page-wrapper{
+    .header{
+        .header-inner{
+            float: none;
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            flex-direction: column;
+            .header-inner-x{
+                display: flex;
+                align-items: center;
+                gap: 0;
+                justify-content: left;
+            }
+            .header-left{
+                h1{
+                    a{
+                        span{
+                            img{
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header-menu{
+                margin-left: -2rem;
+                .menu{
+                    .leaf{
+                        a{
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}
+@media(max-width: 581px){
+.page-wrapper{
+    .header{
+        .header-inner{
+            .header-left{
+                h1{
+                    a{
+                        span{
+                            img{
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header-menu{
+                margin-left: -2rem;
+
+                .menu{
+                    .leaf{
+                        a{
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}
+@media(max-width: 581px){
+.page-wrapper{
+    .header{
+        .header-inner{
+            .header-left{
+                h1{
+                    a{
+                        span{
+                            img{
+                                width: 8rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header-menu{
+                margin-left: -2rem;
+
+                .menu{
+                    .leaf{
+                        a{
+                            font-size: 6px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}
