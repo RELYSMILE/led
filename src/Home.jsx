@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import logo from './assets/logos/logo.png'
 import lz_logo from './assets/logos/LZ_logo_silver-1000x302.png'
 import './album.css';
-import './app.css';
+import './App.css';
 import Album from './Album'
 
 function Home() {
