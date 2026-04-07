@@ -1,0 +1,406 @@
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.home {
+  background-color: #202020;
+  color: #fff;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* ===== HERO ===== */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.symbols2 {
+  margin-bottom: 30px;
+}
+
+.symbols2 img {
+  max-width: 50%;
+  height: auto;
+}
+
+.hero-text {
+  color: #E3972B;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.hero-text a {
+  color: #E3972B;
+  text-decoration: none;
+}
+
+.hero-text a:hover {
+  text-decoration: underline;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.contentInner.buyPage {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* CLEARFIX (VERY IMPORTANT) */
+.contentInner::after,
+.threeCol::after,
+.twoCol::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ===== GRID LAYOUT ===== */
+
+
+
+.twoCol {
+  width: 49%;
+  float: left;
+  margin: 14px 2% 0 0;
+}
+
+.twoCol.lastCol {
+  margin-right: 0;
+}
+
+.oneCol {
+  clear: both;
+  margin-bottom: 14px;
+}
+
+/* ===== CARD ===== */
+.format {
+  margin-bottom: 14px;
+  text-align: center;
+  color: #111;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #5d5d5d;
+  overflow: hidden;
+}
+
+/* HEADERS */
+.format h3 {
+  color: #d2d2d2;
+  padding: 8px;
+  margin: 0;
+  font-size: 18px;
+}
+
+.format h4 {
+  padding: 12px;
+  color: rgba(255, 166, 0, 0.67);
+  font-family: 'serif';
+  font-size: 18px;
+  margin: 0;
+}
+
+/* TEXT */
+.format p {
+  font-size: 12px;
+  padding: 0 10px;
+  line-height: 18px;
+}
+
+/* ===== IMAGES ===== */
+.prodImage {
+  width: 100%;
+  height: 15rem;
+  display: block;
+}
+
+.topFullWidth img {
+  width: 100%;
+}
+
+/* ===== BUTTON ===== */
+.btn,
+.but_download {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 8px 12px;
+  background: #c1171e;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 3px;
+  width: 180px;
+}
+
+.btn:hover,
+.but_download:hover {
+  background: #6a6a6a;
+}
+.format a {
+    padding: .2rem;
+    width: fit-content;
+}
+
+
+/* ===== MORE INFO ===== */
+.moreText {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.readMore {
+  color: #df5e49;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.readMore:hover {
+  color: #727272;
+}
+
+/* ===== MAIN ALBUM ===== */
+.main-album h4 {
+  font-weight: bold;
+}
+
+/* ===== TITLE BLOCK ===== */
+.title {
+  background-color: #415a9a;
+  color: white;
+  padding: 8px;
+}
+
+/* ===== SPECIAL IMAGE BLOCKS ===== */
+.topOriginalFour,
+.topOriginalFive {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===== UTILITY ===== */
+.clearFix {
+  clear: both;
+}
+
+.releaseJump {
+  height: 0;
+  overflow: hidden;
+}
+
+.tsrts-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 20px;
+}
+
+.tsrts-card {
+  width: 30%;
+}
+.twoCol {
+  width: 48%;
+  margin: 20px 1%;
+  float: none;
+}
+
+.twoCol.lastCol {
+  margin-right: 0;
+}
+
+/* wrap both columns */
+.twoCol-wrapper {
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 20px;
+}
+.oneCol {
+  width: 60%;
+  margin: 40px auto; /* center */
+  float: none;
+}
+/* Two column cards = blue background */
+.twoCol .format {
+  /* nice deep blue */
+  color: #fff;
+}
+
+/* optional: adjust text inside */
+.twoCol .format h3,
+.twoCol .format h4,
+.twoCol .format p {
+  color: #fff;
+}
+
+/* button tweak so it fits blue theme */
+.twoCol .format .btn {
+  background-color: #0ea5e9;
+}
+
+.twoCol .format .btn:hover {
+  background-color: #0284c7;
+}
+
+/* TSRTS cards - black background */
+.tsrts-grid .format {
+  background-color: #000;
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* fix text colors */
+.tsrts-grid .format h3,
+.tsrts-grid .format h4,
+.tsrts-grid .format p {
+  color: #fff;
+}
+
+/* center image */
+
+
+/* button styling */
+.tsrts-grid .format .btn {
+  background-color: #e11d48; /* red */
+}
+
+.tsrts-grid .format .btn:hover {
+  background-color: #9f1239;
+}
+/* subtitle background (h3) */
+.tsrts-grid .format h3 {
+  background-color: #111; /* slightly lighter than black */
+  letter-spacing: 0.5px;
+}
+.tsrts-grid .format h4 {
+    color: rgb(205, 134, 1);
+}
+
+
+/* ===== THREE COLUMN FIX ===== */
+.threeCol-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.three-section-wrapper {
+  display: flex;
+  justify-content: center; /* centers everything */
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.three-section-item {
+  flex: 1 1 300px;
+  max-width: 350px;
+  width: 100%;
+}
+.three-section-item #threeCol2 {
+  width: 100%;
+}
+.three-section-item .threeCol {
+  width: 100% !important;
+  max-width: 100% !important;
+  background: #fff;
+  color: #c1171e;
+}
+.three-section-item #threeCol2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+
+/* remove old float behavior */
+
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .threeCol {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .threeCol {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* stack on mobile */
+@media (max-width: 768px) {
+  .twoCol-wrapper {
+    flex-direction: column;
+  }
+
+  .twoCol {
+    width: 100%;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) {
+  .tsrts-card {
+    flex: 1 1 calc(50% - 16px); /* 2 per row */
+    max-width: calc(50% - 16px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .tsrts-card {
+    flex: 1 1 100%; /* 1 per row */
+    max-width: 100%;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .threeCol,
+  .twoCol {
+    width: 100%;
+    float: none;
+    margin: 14px 0;
+  }
+}
+
+/* ===== EXTRA GRID ===== */
+.one_third {
+  width: 30%;
+  float: left;
+  margin: 0 1.5% 27px;
+}
+
+@media (max-width: 768px) {
+  .one_third {
+    width: 100%;
+    float: none;
+    margin: 0 0 20px;
+  }
+}

@@ -1,0 +1,1306 @@
+@import "tailwindcss";
+
+/* Reset and Base */
+html, body, div, span, applet, object, iframe, img, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+  background: transparent;
+  border: 0;
+  font-size: 1em;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', Gotham, Futura, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #111;
+  background: #202020;
+  line-height: 1.5;
+}
+
+a {
+  color: #ed3d3d;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #202020;
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 20px;
+  height: 70px;
+}
+
+.header-left {
+  flex-shrink: 0;
+}
+
+#site-name {
+  margin: 0;
+  width: 170px;
+}
+
+#site-name a {
+  background-image: url(/sites/g/files/g2000013721/files/sites/default/files/201701/ledzeppelin-logo-small.png);
+  height: 43px;
+  width: 170px;
+  display: block;
+  text-indent: -5555px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#site-name a:hover {
+  opacity: 0.5;
+}
+
+/* Navigation */
+.header-menu {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.header-menu .menu {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.header-menu .menu li {
+  list-style: none;
+}
+
+.header-menu .menu li a {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #e1e1e1;
+  font-size: 11px;
+  display: block;
+  line-height: 1;
+  border-bottom: none;
+  padding: 11.5px 0;
+}
+
+.header-menu .menu li a:hover {
+  text-decoration: underline;
+  background: none;
+}
+
+/* Header Right - Mailing List */
+.header-right {
+  flex-shrink: 0;
+}
+
+.mlistwrapper {
+  position: relative;
+}
+
+.plain-ml-wrapper {
+  position: relative;
+}
+
+.mlistFormOne {
+  width: 233px;
+  margin: 0 10px;
+  padding: 0;
+  border: 0;
+  position: relative;
+}
+
+.email.fieldWrap {
+  width: 233px;
+  margin-bottom: 0.7em;
+  cursor: pointer;
+}
+
+.email.fieldWrap input {
+  box-sizing: border-box;
+  height: 30px;
+  background-color: #282828;
+  border: 1px solid #666358;
+  color: #e9e6d8;
+  line-height: 24px;
+  width: 100%;
+  font-size: 12px;
+  background-image: url(/sites/g/files/g2000013721/files/2022-03/mailinglistenvelope.png);
+  background-repeat: no-repeat;
+  background-position: 6px 8px;
+  border-radius: 2px;
+  padding: 2px 4px 2px 26px;
+  text-transform: none;
+  text-align: left;
+  margin: 0;
+  display: block;
+}
+
+.email.fieldWrap input::placeholder {
+  color: #e9e6d8;
+}
+
+.email.fieldWrap input:focus {
+  outline: none;
+}
+
+/* Consent Terms */
+.consent-placeholder {
+  position: absolute;
+  background: #e9e6d8;
+  font-size: 11px;
+  top: 41px;
+  width: 320px;
+  right: 9px;
+  box-sizing: border-box;
+  padding: 16px;
+  padding-bottom: 52px;
+  margin: 0 0 0 -86px;
+  border-radius: 2px;
+  padding-top: 20px;
+  z-index: 2;
+  display: block;
+}
+
+.consent-placeholder input[type="checkbox"] {
+  position: absolute;
+  left: 15px;
+  width: 22px;
+  height: 22px;
+  z-index: 10;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.consent-placeholder label {
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 1.4;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  padding-left: 32px;
+  vertical-align: top;
+  font-weight: 400;
+  position: static;
+  color: #262739;
+  cursor: pointer;
+}
+
+.consent-placeholder label a {
+  color: #262739;
+  text-decoration: underline;
+}
+
+.consent-placeholder label a:hover {
+  opacity: 0.5;
+}
+
+.consent-placeholder input[type="checkbox"] + label::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: auto;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #262739;
+  background: transparent;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.consent-placeholder input[type="checkbox"]:checked + label::after {
+  content: "\2713";
+  position: absolute;
+  top: 24px;
+  line-height: 1;
+  left: 20px;
+  font-size: 16px;
+  color: #262739;
+  font-weight: 700;
+  text-align: center;
+}
+
+.emailPopoverTip {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #e9e6d8;
+  margin: auto;
+  display: block;
+  position: absolute;
+  top: 33px;
+  right: 123px;
+}
+
+.mlistFormOne .submit {
+  position: absolute;
+  top: 140px;
+  right: 32px;
+  width: 280px;
+  z-index: 9999;
+}
+
+input.submit.mlistSubmit {
+  background: #ed3d3d;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  padding: 0;
+  width: 280px;
+  -webkit-appearance: none;
+  margin: 14px 0 7px;
+}
+
+input.submit.mlistSubmit:hover {
+  background: #a1a1a1;
+}
+
+/* Banner Navigation */
+.header-banner-nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, #cecece 0%, #ffffff 50%, #cecece 100%);
+  text-align: center;
+  z-index: 99;
+}
+
+.releaseJumpList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.releaseJumpList li {
+  display: inline-block;
+  padding: 10px 8px;
+  list-style: none;
+}
+
+.releaseJumpList li a {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #c1171e;
+  font-size: 13px;
+  padding: 0 0 0 14px;
+  background-image: url(/sites/g/files/g2000013721/files/2022-03/down-arrow.png);
+  background-repeat: no-repeat;
+  background-position: 0 2px;
+  display: block;
+  line-height: 14px;
+  margin: 0;
+  text-decoration: none;
+}
+
+.releaseJumpList li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+#main-wrapper {
+  padding-top: 120px;
+}
+
+.container_full {
+  width: 100%;
+  background: #202020;
+}
+
+.fullwidthbanner-container {
+  position: relative;
+  z-index: 0;
+  margin-top: 0;
+  max-width: none !important;
+  overflow: visible;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.symbols2 {
+  margin-bottom: 30px;
+}
+
+.symbols2 img {
+  max-width: 50%;
+  height: auto;
+}
+
+.hero-content h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal !important;
+  color: #E3972B;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 20px;
+  font-style: normal;
+}
+
+.hero-content h4 a {
+  color: #E3972B;
+}
+
+.hero-content h4 a:hover {
+  color: #fff;
+}
+
+/* Video Container */
+.video-content-wrapper {
+  margin: 0 auto 60px;
+  max-width: 90%;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+}
+
+.video-container iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Album Cards */
+.content_fullwidth2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 27px;
+}
+
+.one_third {
+  width: calc(33.333% - 18px);
+  display: block;
+  margin-bottom: 27px;
+}
+
+/* Home.css - Led Zeppelin Official Website Styles */
+
+.home {
+  background-color: #202020;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.symbols2 {
+  margin-bottom: 30px;
+}
+
+.symbols2 img {
+  max-width: 50%;
+  height: auto;
+}
+
+.hero-text {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  color: #E3972B;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 20px;
+  font-style: normal;
+}
+
+.hero-text a {
+  color: #E3972B;
+  text-decoration: none;
+}
+
+.hero-text a:hover {
+  text-decoration: underline;
+}
+
+/* Content Layout */
+.contentInner.buyPage {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Column Layouts */
+.threeCol {
+  padding: 0;
+  float: left;
+  width: 100%;
+  max-width: 257px;
+  margin: 14px 2% 0 0;
+  width: 32%;
+}
+
+.threeCol.lastCol {
+  margin: 14px 0 0 0;
+  float: right;
+}
+
+.twoCol {
+  margin: 14px 14px 0 0;
+  max-width: 390px;
+  width: 49%;
+  padding: 0;
+  float: left;
+}
+
+.twoCol.lastCol {
+  float: right;
+  margin: 14px 0 0 0;
+}
+
+.oneCol {
+  clear: both;
+  margin-bottom: 14px;
+}
+
+/* Format Cards - THE KEY STYLING */
+.format {
+  background-color: #e1e1e1;
+  margin: 0 0 14px 0;
+  padding: 0;
+  text-align: center;
+  color: #111;
+}
+
+.format h3 {
+  width: 100%;
+  display: block;
+  background-color: #415a9a;
+  color: #ffffff;
+  text-align: center;
+  padding: 6px 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 16px;
+  min-height: 30px;
+}
+
+.format h4 {
+  margin: 0;
+  padding: 14px;
+  line-height: 16px;
+  color: #c1171e;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.format h5 {
+  margin: 10px 4px 10px 0px;
+  padding: 5px 0 5px 0;
+  color: #c1171e;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c1171e;
+  width: 140px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.format h6 {
+  margin: 10px 0;
+  padding: 5px 10px;
+  color: #c1171e;
+  font-size: 14px;
+  line-height: 16px;
+  display: inline-block;
+  width: 170px;
+  text-align: center;
+}
+
+.format p {
+  font-size: 11.96px;
+  margin: 0;
+  padding: 0 14px 8px 14px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  line-height: 20px;
+  color: #111;
+}
+
+/* Product Images */
+.prodImage {
+  width: 100%;
+  height: auto;
+  max-width: 390px;
+  display: block;
+}
+
+.main-image {
+  cursor: pointer;
+}
+
+.topFullWidth img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 8px 10px 6px 12px;
+  margin: 0 0 14px 0;
+  color: white;
+  background-color: #c1171e;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 2px;
+  text-decoration: none;
+  width: 200px;
+  cursor: pointer;
+  text-transform: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+  opacity: 0.9;
+  background-color: #6a6a6a;
+}
+
+.but_download {
+  display: inline-block;
+  padding: 8px 10px 6px 12px;
+  margin: 0 0 14px 0;
+  color: white;
+  background-color: #c1171e;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 2px;
+  text-decoration: none;
+  width: 200px;
+  cursor: pointer;
+}
+
+.but_download:hover {
+  background-color: #6a6a6a;
+  text-decoration: none;
+}
+
+/* More Info / Read More */
+.moreText {
+  display: block;
+  color: #111;
+  font-size: 11.96px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: left;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.readMore {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 11.96px;
+  color: #df5e49;
+  margin-top: 5px;
+}
+
+.readMore:hover {
+  color: #727272;
+}
+
+/* Lists */
+.list_empty {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.list_empty li {
+  float: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+/* Utility */
+.clearFix {
+  margin: 0;
+  padding: 0;
+  clear: both;
+}
+
+.releaseJump {
+  display: block;
+  clear: both;
+  height: 0px;
+  overflow: hidden;
+  font-size: 0;
+}
+
+/* Main album styling (first card in section) */
+.main-album {
+  background-color: #e1e1e1;
+}
+
+.main-album h4 {
+  color: #c1171e;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 14px;
+  margin: 0;
+}
+
+/* Title block for first card */
+.title {
+  background-color: #415a9a;
+  color: #ffffff;
+  padding: 6px 0;
+  text-align: center;
+}
+
+.title h3 {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+/* Swipey image containers for LZ IV and HOTH */
+.topOriginalFour {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-width: 390px;
+  height: 390px;
+  background-image: url('/sites/g/files/g2000013721/files/sites/default/files/201701/lziv_original.jpg');
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: cover;
+}
+
+.bottomInvertedFour {
+  position: absolute;
+  display: block;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 390px;
+  background-image: url('/sites/g/files/g2000013721/files/sites/default/files/201701/lz_iv_companion.jpg');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: cover;
+  border-left: 4px solid black;
+}
+
+.topOriginalFive {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-width: 390px;
+  height: 390px;
+  background-image: url('/sites/g/files/g2000013721/files/sites/default/files/201701/lzv_hoth_original.jpg');
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: cover;
+}
+
+.bottomInvertedFive {
+  position: absolute;
+  display: block;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 390px;
+  background-image: url('/sites/g/files/g2000013721/files/sites/default/files/201701/lz_v_hoth_companion.jpg');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: cover;
+  border-left: 4px solid black;
+}
+
+.swipeyBackground:hover {
+  cursor: ew-resize;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1024px) {
+  .threeCol {
+    max-width: 100%;
+    width: 100%;
+    margin: 14px 0 0 0;
+    float: none;
+  }
+  
+  .twoCol {
+    max-width: 100%;
+    width: 100%;
+    margin: 14px 0 0 0;
+    float: none;
+  }
+  
+  .twoCol.lastCol {
+    float: none;
+  }
+}
+
+/* Container */
+.container_full {
+  width: 100%;
+  max-width: 100%;
+}
+
+.content_fullwidth2 {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Portfolio image styling */
+.portfolio_image {
+  text-align: center;
+}
+
+.portfolio_image img {
+  max-height: 254px;
+  width: 100%;
+}
+
+/* One third grid */
+.one_third {
+  width: 30%;
+  float: left;
+  margin: 0 1.5% 27px;
+  display: block;
+}
+
+@media only screen and (max-width: 768px) {
+  .one_third {
+    width: 100%;
+    float: none;
+    margin: 0 0 27px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .one_third {
+    width: calc(50% - 13.5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .one_third {
+    width: 100%;
+  }
+}
+
+.one_third.last {
+  margin-right: 0;
+}
+
+.portfolio_image {
+  background: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.portfolio_image .title {
+  background: #415a9a;
+  color: #ffffff;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.portfolio_image .title h3 {
+  font-size: 16px;
+  font-weight: normal !important;
+  line-height: 16px;
+  color: #fff;
+  margin: 0;
+}
+
+.portfolio_image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 254px;
+  object-fit: cover;
+}
+
+.list_empty {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.list_empty li {
+  float: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.but_download {
+  display: inline-block;
+  padding: 8px 10px 6px 12px;
+  margin: 10px auto;
+  color: white;
+  background-color: #c1171e;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.but_download:hover {
+  text-decoration: none;
+  opacity: 0.9;
+  background-color: #6a6a6a;
+}
+
+.moreText {
+  display: none;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 0 14px 8px;
+  text-align: left;
+}
+
+.moreText.show {
+  display: block;
+}
+
+.readMore {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 12px;
+  color: #df5e49;
+  margin: 10px 14px;
+  text-transform: uppercase;
+}
+
+.readMore:hover {
+  color: #727272;
+}
+
+/* Legacy Albums Section */
+.contentInner.buyPage {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.hero p {
+  font: 14px 'Open Sans', sans-serif;
+  font-weight: normal;
+  line-height: 23px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.hero p i {
+  color: #fff;
+  font-style: italic;
+}
+
+.byLine {
+  color: #fff;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 0;
+}
+
+.footerWrapper {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footerImageWrapper {
+  display: block;
+  width: 100%;
+  background-color: #e9e6d8;
+  font-size: 0;
+}
+
+.footerImageWrapper img {
+  padding: 13px 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.footerInnerWrapper {
+  display: block;
+  width: 100%;
+  background-color: #6a6a6a;
+  padding: 20px;
+}
+
+.footerNavWrapper ul {
+  padding-top: 5px;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.footerNavWrapper ul li {
+  display: inline-block;
+  color: #fff;
+  padding: 0 2px;
+  margin: 0;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  border: 0 !important;
+  line-height: 16px;
+  height: 16px;
+}
+
+.footerNavWrapper ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0;
+  text-indent: 0;
+  border: none;
+  line-height: 1;
+}
+
+.footerNavWrapper ul li a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.footercopyrightWrapper {
+  margin: 20px 0 0 0 !important;
+  text-align: center;
+  color: #ffc;
+  font-size: 10px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.footercopyrightWrapper span {
+  color: #ffc;
+  line-height: 2;
+}
+
+.footercopyrightWrapper a {
+  font-weight: bold;
+  color: #ffc;
+  line-height: 1.8;
+  text-transform: uppercase;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  margin: 0 4px;
+}
+
+.footercopyrightWrapper a:hover {
+  color: #ffc;
+  text-decoration: underline;
+}
+
+/* ===== CAROUSEL STYLES ===== */
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #000;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.carousel-slide a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Carousel Controls */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+  background: rgba(193, 23, 30, 0.8);
+}
+
+.carousel-btn.prev {
+  left: 20px;
+}
+
+.carousel-btn.next {
+  right: 20px;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.carousel-indicators .indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.carousel-indicators .indicator.active {
+  background: #c1171e;
+  border-color: #c1171e;
+}
+
+.carousel-indicators .indicator:hover {
+  background: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    height: 300px;
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+  
+  .carousel-btn.prev {
+    left: 10px;
+  }
+  
+  .carousel-btn.next {
+    right: 10px;
+  }
+}
+
+/* ===== EXISTING STYLES BELOW ===== */
+/* ... keep all your existing CSS ... */
+
+/* Responsive */
+@media only screen and (max-width: 1300px) {
+  .header-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+  }
+  
+  .header-menu {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  
+  .header-menu .menu {
+    justify-content: center;
+  }
+  
+  .header-right {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+  
+  #main-wrapper {
+    padding-top: 150px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #main-wrapper {
+    padding-top: 180px;
+  }
+  
+  .one_third {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header-menu .menu {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .header-menu .menu li a {
+    font-size: 10px;
+    padding: 5px 0;
+  }
+  
+  .mlistFormOne {
+    width: 200px;
+  }
+  
+  .email.fieldWrap,
+  .email.fieldWrap input {
+    width: 200px;
+  }
+  
+  .consent-placeholder {
+    width: 280px;
+    right: 0;
+    margin-left: -40px;
+  }
+  
+  .symbols2 img {
+    max-width: 80%;
+  }
+  
+  .hero-content h4 {
+    font-size: 14px;
+  }
+}
+
+.mobdis {
+  display: none;
+}
+
+@media only screen and (max-width: 530px) {
+  .mobdis {
+    display: block;
+  }
+  
+  .mobnone {
+    display: none;
+  }
+}
