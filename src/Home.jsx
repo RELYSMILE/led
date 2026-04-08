@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import logo from './assets/logos/logo.png'
 import lz_logo from './assets/logos/LZ_logo_silver-1000x302.png'
 import './album.css';
 import './App.css';
 import Album from './Album'
+import ServicesModal from './ServicesModal'
 
 function Home() {
   const [expandedItems, setExpandedItems] = useState({})
@@ -11,6 +12,7 @@ function Home() {
   const [showTerms, setShowTerms] = useState(false)
   const [currentYear] = useState(new Date().getFullYear())
     const [currentSlide, setCurrentSlide] = useState(0)
+    const [open, setOpen] = useState(false);
 
 
     const slides = [
@@ -116,7 +118,12 @@ function Home() {
     return () => document.removeEventListener('mouseup', handleClickOutside)
   }, [])
 
+    const handleServiceClick = () => {
+    setOpen(true);
+  }
+
   const menuItems = [
+    { label: 'Services', onClick: handleServiceClick },
     { label: 'News', href: 'https://www.ledzeppelin.com/news' },
     { label: 'Discography', href: 'https://discography.ledzeppelin.com/', external: true },
     { label: 'Timeline', href: 'https://www.ledzeppelin.com/timelinebrowse' },
@@ -126,7 +133,6 @@ function Home() {
     { label: 'Merchandise', href: 'https://store.ledzeppelin.com/', external: true },
     { label: 'Contact', href: 'https://www.ledzeppelin.com/contact-us' },
   ]
-
   const releaseLinks = [
     { label: 'Led Zeppelin', href: '#threeCol1' },
     { label: 'Led Zeppelin II', href: '#ledZeppelinIIa' },
@@ -263,17 +269,27 @@ const albums = [
           
           <nav className="header-menu">
             <ul className="menu">
-              {menuItems.map((item, idx) => (
-                <li key={idx} className="leaf level-1">
-                  <a 
-                    href={item.href} 
-                    target={item.external ? '_blank' : undefined}
-                    rel={item.external ? 'noreferrer' : undefined}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+             {menuItems.map((item, idx) => (
+  <li key={idx} className="leaf level-1">
+    {item.onClick ? (
+      <a
+        onClick={item.onClick}
+        style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+        className="text-white hover:text-red-500 transition duration-300"
+      >
+        {item.label}
+      </a>
+    ) : (
+      <a
+        href={item.href}
+        target={item.external ? '_blank' : undefined}
+        rel={item.external ? 'noreferrer' : undefined}
+      >
+        {item.label}
+      </a>
+    )}
+  </li>
+))}
             </ul>
           </nav>
           </div>
@@ -486,6 +502,7 @@ const albums = [
           </div>
         </div>
       </footer>
+      <ServicesModal isOpen={open} onClose={() => setOpen(false)} />
     </div>
   )
 }
