@@ -143,6 +143,13 @@ border border-zinc-800" style={{backgroundImage: "url('/1.jpg')", padding: '2rem
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   <ServiceCard
+                    title="REGULAR"
+                    desc="General meet & greet with photo opportunity, standard seating."
+                    icon={Star}
+                    subject="Regular Meet & Greet Request"
+                    body="Hello, I am interested in the Regular Meet & Greet package. I would like to inquire about availability and pricing for standard access."
+                  />
+                  <ServiceCard
                     title="VIP"
                     desc="Priority access with exclusive interaction and premium seating."
                     icon={Users}
