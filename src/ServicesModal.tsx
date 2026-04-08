@@ -121,7 +121,7 @@ className="w-full max-w-6xl max-h-[90vh] overflow-y-auto
 bg-gradient-to-b from-zinc-950 to-black 
 text-white rounded-3xl p-8 
 shadow-[0_20px_60px_rgba(0,0,0,0.8)] 
-border border-zinc-800" style={{backgroundImage: "url('./public/1.jpg')", padding: '2rem 2rem 7rem 2rem', position: "absolute", top: '10rem', scrollbarWidth: 'none'}}         >
+border border-zinc-800" style={{backgroundImage: "url('/1.jpg')", padding: '2rem 2rem 7rem 2rem', position: "absolute", top: '10rem', scrollbarWidth: 'none'}}         >
             {/* HEADER */}
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">Services</h2>
