@@ -28,7 +28,7 @@ type ServicesModalProps = {
 
 /* ================= HELPERS ================= */
 
-const email = "relysmild@gmail.com";
+const email = "management@leddzeppelin.com";
 
 const createMailto = (subject: string, body: string): string => {
   return `mailto:${email}?subject=${encodeURIComponent(
