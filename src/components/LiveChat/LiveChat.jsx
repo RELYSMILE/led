@@ -7,7 +7,7 @@ const LiveChat = () => {
         
         // Create the script element for Tawk.to widget
         const tawkScript = document.createElement('script');
-        tawkScript.src = 'https://embed.tawk.to/69b403909b4bdc1c397b5dd8/1jjjirr6s';
+        tawkScript.src = 'https://embed.tawk.to/69dc9696d27c0d1c369ea8dd/1jm2qoffd';
         tawkScript.async = true;
         tawkScript.charset = 'UTF-8';
         tawkScript.setAttribute('crossorigin', '*');
