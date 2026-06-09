@@ -5,14 +5,16 @@ import './album.css';
 import './App.css';
 import Album from './Album'
 import ServicesModal from './ServicesModal'
+import ErrorPage from './components/ErrorPage'
 
 function Home() {
   const [expandedItems, setExpandedItems] = useState({})
   const [email, setEmail] = useState('')
   const [showTerms, setShowTerms] = useState(false)
   const [currentYear] = useState(new Date().getFullYear())
-    const [currentSlide, setCurrentSlide] = useState(0)
-    const [open, setOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [open, setOpen] = useState(false);
+  const [hasError, setHasError] = useState(true)
 
 
     const slides = [
@@ -254,256 +256,262 @@ const albums = [
   )
 
   return (
-    <div className="page-wrapper">
-      {/* Header */}
-      <header id="header" className="header">
-        <div className="header-inner">
-          <div className='header-inner-x'>
-          <div className="header-left">
-            <h1 id="site-name">
-              <a href="https://www.ledzeppelin.com" rel="home">
-                <span><img src={logo} alt="" /></span>
-              </a>
-            </h1>
-          </div>
-          
-          <nav className="header-menu">
-            <ul className="menu">
-             {menuItems.map((item, idx) => (
-  <li key={idx} className="leaf level-1">
-    {item.onClick ? (
-      <a
-        onClick={item.onClick}
-        style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-        className="text-white hover:text-red-500 transition duration-300"
-      >
-        {item.label}
-      </a>
+    <>
+    {hasError ? (
+      <ErrorPage />
     ) : (
-      <a
-        href={item.href}
-        target={item.external ? '_blank' : undefined}
-        rel={item.external ? 'noreferrer' : undefined}
-      >
-        {item.label}
-      </a>
-    )}
-  </li>
-))}
-            </ul>
-          </nav>
-          </div>
-
-          <div className="header-right">
-            <div className="mlistwrapper">
-              <div className="plain-ml-wrapper">
-                <form className="mlistFormOne mlform twostep" onSubmit={handleSubmit}>
-                  <div className="email fieldWrap" onClick={handleEmailClick}>
-                    <input
-                      type="email"
-                      placeholder="Get Led Zeppelin news in your inbox"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                  </div>
-                  
-                  {showTerms && (
-                    <>
-                      <span className="consent-placeholder">
-                        <input type="checkbox" id="artist_mktg_consent_1" required />
-                        <label htmlFor="artist_mktg_consent_1">
-                          I want Warner Music Group to send me marketing messages about{' '}
-                          <span>Led Zeppelin</span>. Unsubscribe at any time. Please read our{' '}
-                          <a href="https://www.ledzeppelin.com/privacy-policy" target="_blank" rel="noreferrer">
-                            Privacy Policy
-                          </a>
-                          .
-                        </label>
-                      </span>
-                      <div className="submit">
-                        <input type="submit" className="submit mlistSubmit" value="Sign Me Up!" />
-                      </div>
-                      <div className="emailPopoverTip"></div>
-                    </>
-                  )}
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Banner Navigation */}
-      <div className="header-banner-nav">
-        <ul className="releaseJumpList">
-          {releaseLinks.map((link, idx) => (
-            <li key={idx}>
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Main Content */}
-      <main id="main-wrapper">
-        {/* Hero Slider Section */}
-        <div className="carousel-container" style={{width: "100%",
-  overflow: "hidden",
-  position: "relative"}} >
-          <div className="carousel-wrapper" style={{
-  display: "flex",
-  width: "100%",
-  height: "100%",
-  transform: `translateX(-${currentSlide * 100}%)`,
-  transition: "transform 1.3s ease-in-out"
-}}>
-            {slides.map((slide, index) => (
-              <div
-                key={slide.id}
-                className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
-                style={{
-    minWidth: "100%",   // VERY IMPORTANT
-    height: "100%",
-    flexShrink: 0,
-    position: "relative",
-    transform: `translateX(${(index - currentSlide) * 100}%)`,
-
-  }}
-              >
-                <a href={slide.link} target="_blank" rel="noreferrer">
-                  <img 
-                    src={slide.image} 
-                    alt={`Slide ${slide.id}`}
-                    onError={(e) => {
-                      console.error('Failed to load:', slide.image)
-                      e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><rect fill="%23333" width="100%" height="100%"/><text fill="%23fff" x="50%" y="50%" text-anchor="middle">Image Not Available</text></svg>'
-                    }}
-                    style={{
-    width: "100%",
-    height: "auto",
-    objectFit: "cover",
-    display: "block"
-  }}
-                  />
+      <div className="page-wrapper">
+        {/* Header */}
+        <header id="header" className="header">
+          <div className="header-inner">
+            <div className='header-inner-x'>
+            <div className="header-left">
+              <h1 id="site-name">
+                <a href="https://www.ledzeppelin.com" rel="home">
+                  <span><img src={logo} alt="" /></span>
                 </a>
-              </div>
-            ))}
-          </div>
-
-          {/* Carousel Controls */}
-          <button className="carousel-btn prev" onClick={prevSlide}>‹</button>
-          <button className="carousel-btn next" onClick={nextSlide}>›</button>
-
-          {/* Carousel Indicators */}
-          <div className="carousel-indicators">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                className={`indicator ${index === currentSlide ? 'active' : ''}`}
-                onClick={() => goToSlide(index)}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* REST OF CONTENT */}
-        <div className="container_full">
-          <div className="hero-content">
-            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="symbols2">
-              <img 
-                src={lz_logo} 
-                alt="Led Zeppelin Logo Silver"
-                onError={(e) => {
-                  e.target.style.display = 'none'
-                }}
-              />
+              </h1>
             </div>
-            <h4>
-              Led Zeppelin conclude their reissue campaign with a new edition of the soundtrack to the concert film 'The Song Remains The Same', originally released in 1976 and featuring newly remastered audio supervised by Jimmy Page.
-              <br /><br />
-              The album was recorded in July 1973 at Madison Square Garden in New York City and the new version released on September 7, 2018 as a Super Deluxe Boxed Set, CD, Vinyl and Digital Versions, plus the full album's debut release in Hi-Res 5.1 surround sound on blu-ray.
-              <br />
-              <a target="_blank" href="https://lnk.to/TSRTS" rel="noreferrer">
-                <strong>Order your copy now</strong>
-              </a>.
-            </h4>
-
-            {/* Video */}
-            <div className="video-content-wrapper">
-              <div className="video-container">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/8MgL8RNbwDc"
-                  title="Led Zeppelin - The Song Remains The Same (2018) (Official Trailer)"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Album Cards */}
-        <div className="container_full">
-          <div className="content_fullwidth2">
-            <Album />
-          </div>
-        </div>
-
-        {/* Legacy Albums Section */}
-        {/* <div className="contentInner buyPage">
-          <div className="hero">
-            <p>
-              With the release of deluxe editions of Led Zeppelin, Led Zeppelin II, and Led Zeppelin III, 
-              the band will launch an extensive reissue program of all nine of its studio albums in chronological order, 
-              each remastered by guitarist and producer Jimmy Page. Led Zeppelin will also open its vaults to share 
-              dozens of unheard studio and live recordings, with each album featuring a second disc of companion 
-              audio comprised entirely of unreleased music related to that album.
-              <br /><br />
-              <i>"The material on the companion discs presents a portal to the time of the recording of Led Zeppelin," says Page. "It is a selection of work in progress with rough mixes, backing tracks, alternate versions, and new material recorded at the time"</i>
-            </p>
-            <p className="byLine">- Jimmy Page</p>
-          </div>
-        </div> */}
-      </main>
-
-      {/* Footer */}
-      <footer className="site-footer">
-        <div className="footerWrapper">
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="footerImageWrapper">
-            <img src="https://www.ledzeppelin.com/sites/g/files/g2000013721/files/2022-03/zosa.png" alt="Zoso" />
-          </div>
-          <div className="footerInnerWrapper">
-            <div className="footerNavWrapper">
-              <ul>
-                {menuItems.slice(0, 8).map((item, idx) => (
-                  <li key={idx}>
-                    <a 
-                      href={item.href}
-                      target={item.external ? '_blank' : undefined}
-                      rel={item.external ? 'noreferrer' : undefined}
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
+            
+            <nav className="header-menu">
+              <ul className="menu">
+              {menuItems.map((item, idx) => (
+    <li key={idx} className="leaf level-1">
+      {item.onClick ? (
+        <a
+          onClick={item.onClick}
+          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+          className="text-white hover:text-red-500 transition duration-300"
+        >
+          {item.label}
+        </a>
+      ) : (
+        <a
+          href={item.href}
+          target={item.external ? '_blank' : undefined}
+          rel={item.external ? 'noreferrer' : undefined}
+        >
+          {item.label}
+        </a>
+      )}
+    </li>
+  ))}
               </ul>
+            </nav>
             </div>
-            <div className="footercopyrightWrapper">
-              © {currentYear} <span>Rhino Entertainment & Led Zeppelin.com</span>
-              <br />
-              <a href="https://www.ledzeppelin.com/contact-help-0">Contact / Help</a> | 
-              <a href="https://www.rhino.com/terms-of-use" target="_blank" rel="noreferrer">Terms of Use</a> | 
-              <a href="https://privacy.wmg.com/rhino/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a> | 
-              <a href="https://www.wminewmedia.com/cookies-policy" target="_blank" rel="noreferrer">Cookies Policy</a>
+
+            <div className="header-right">
+              <div className="mlistwrapper">
+                <div className="plain-ml-wrapper">
+                  <form className="mlistFormOne mlform twostep" onSubmit={handleSubmit}>
+                    <div className="email fieldWrap" onClick={handleEmailClick}>
+                      <input
+                        type="email"
+                        placeholder="Get Led Zeppelin news in your inbox"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+                    
+                    {showTerms && (
+                      <>
+                        <span className="consent-placeholder">
+                          <input type="checkbox" id="artist_mktg_consent_1" required />
+                          <label htmlFor="artist_mktg_consent_1">
+                            I want Warner Music Group to send me marketing messages about{' '}
+                            <span>Led Zeppelin</span>. Unsubscribe at any time. Please read our{' '}
+                            <a href="https://www.ledzeppelin.com/privacy-policy" target="_blank" rel="noreferrer">
+                              Privacy Policy
+                            </a>
+                            .
+                          </label>
+                        </span>
+                        <div className="submit">
+                          <input type="submit" className="submit mlistSubmit" value="Sign Me Up!" />
+                        </div>
+                        <div className="emailPopoverTip"></div>
+                      </>
+                    )}
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
+        </header>
+
+        {/* Banner Navigation */}
+        <div className="header-banner-nav">
+          <ul className="releaseJumpList">
+            {releaseLinks.map((link, idx) => (
+              <li key={idx}>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
         </div>
-      </footer>
-      <ServicesModal isOpen={open} onClose={() => setOpen(false)} />
-    </div>
+
+        {/* Main Content */}
+        <main id="main-wrapper">
+          {/* Hero Slider Section */}
+          <div className="carousel-container" style={{width: "100%",
+    overflow: "hidden",
+    position: "relative"}} >
+            <div className="carousel-wrapper" style={{
+    display: "flex",
+    width: "100%",
+    height: "100%",
+    transform: `translateX(-${currentSlide * 100}%)`,
+    transition: "transform 1.3s ease-in-out"
+  }}>
+              {slides.map((slide, index) => (
+                <div
+                  key={slide.id}
+                  className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
+                  style={{
+      minWidth: "100%",   // VERY IMPORTANT
+      height: "100%",
+      flexShrink: 0,
+      position: "relative",
+      transform: `translateX(${(index - currentSlide) * 100}%)`,
+
+    }}
+                >
+                  <a href={slide.link} target="_blank" rel="noreferrer">
+                    <img 
+                      src={slide.image} 
+                      alt={`Slide ${slide.id}`}
+                      onError={(e) => {
+                        console.error('Failed to load:', slide.image)
+                        e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><rect fill="%23333" width="100%" height="100%"/><text fill="%23fff" x="50%" y="50%" text-anchor="middle">Image Not Available</text></svg>'
+                      }}
+                      style={{
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      display: "block"
+    }}
+                    />
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {/* Carousel Controls */}
+            <button className="carousel-btn prev" onClick={prevSlide}>‹</button>
+            <button className="carousel-btn next" onClick={nextSlide}>›</button>
+
+            {/* Carousel Indicators */}
+            <div className="carousel-indicators">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  className={`indicator ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => goToSlide(index)}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* REST OF CONTENT */}
+          <div className="container_full">
+            <div className="hero-content">
+              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="symbols2">
+                <img 
+                  src={lz_logo} 
+                  alt="Led Zeppelin Logo Silver"
+                  onError={(e) => {
+                    e.target.style.display = 'none'
+                  }}
+                />
+              </div>
+              <h4>
+                Led Zeppelin conclude their reissue campaign with a new edition of the soundtrack to the concert film 'The Song Remains The Same', originally released in 1976 and featuring newly remastered audio supervised by Jimmy Page.
+                <br /><br />
+                The album was recorded in July 1973 at Madison Square Garden in New York City and the new version released on September 7, 2018 as a Super Deluxe Boxed Set, CD, Vinyl and Digital Versions, plus the full album's debut release in Hi-Res 5.1 surround sound on blu-ray.
+                <br />
+                <a target="_blank" href="https://lnk.to/TSRTS" rel="noreferrer">
+                  <strong>Order your copy now</strong>
+                </a>.
+              </h4>
+
+              {/* Video */}
+              <div className="video-content-wrapper">
+                <div className="video-container">
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/8MgL8RNbwDc"
+                    title="Led Zeppelin - The Song Remains The Same (2018) (Official Trailer)"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Album Cards */}
+          <div className="container_full">
+            <div className="content_fullwidth2">
+              <Album />
+            </div>
+          </div>
+
+          {/* Legacy Albums Section */}
+          {/* <div className="contentInner buyPage">
+            <div className="hero">
+              <p>
+                With the release of deluxe editions of Led Zeppelin, Led Zeppelin II, and Led Zeppelin III, 
+                the band will launch an extensive reissue program of all nine of its studio albums in chronological order, 
+                each remastered by guitarist and producer Jimmy Page. Led Zeppelin will also open its vaults to share 
+                dozens of unheard studio and live recordings, with each album featuring a second disc of companion 
+                audio comprised entirely of unreleased music related to that album.
+                <br /><br />
+                <i>"The material on the companion discs presents a portal to the time of the recording of Led Zeppelin," says Page. "It is a selection of work in progress with rough mixes, backing tracks, alternate versions, and new material recorded at the time"</i>
+              </p>
+              <p className="byLine">- Jimmy Page</p>
+            </div>
+          </div> */}
+        </main>
+
+        {/* Footer */}
+        <footer className="site-footer">
+          <div className="footerWrapper">
+            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="footerImageWrapper">
+              <img src="https://www.ledzeppelin.com/sites/g/files/g2000013721/files/2022-03/zosa.png" alt="Zoso" />
+            </div>
+            <div className="footerInnerWrapper">
+              <div className="footerNavWrapper">
+                <ul>
+                  {menuItems.slice(0, 8).map((item, idx) => (
+                    <li key={idx}>
+                      <a 
+                        href={item.href}
+                        target={item.external ? '_blank' : undefined}
+                        rel={item.external ? 'noreferrer' : undefined}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="footercopyrightWrapper">
+                © {currentYear} <span>Rhino Entertainment & Led Zeppelin.com</span>
+                <br />
+                <a href="https://www.ledzeppelin.com/contact-help-0">Contact / Help</a> | 
+                <a href="https://www.rhino.com/terms-of-use" target="_blank" rel="noreferrer">Terms of Use</a> | 
+                <a href="https://privacy.wmg.com/rhino/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a> | 
+                <a href="https://www.wminewmedia.com/cookies-policy" target="_blank" rel="noreferrer">Cookies Policy</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <ServicesModal isOpen={open} onClose={() => setOpen(false)} />
+      </div>
+    )}
+    </>
   )
 }
 
